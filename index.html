@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>병원기록관리</title>
+    <!-- Tailwind CSS CDN: 디자인이 깨지지 않게 이 라인이 반드시 포함되어야 합니다 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -37,7 +38,7 @@
             </button>
             <h1 class="text-lg font-bold tracking-tight text-blue-900" id="headerTitle">병원기록관리</h1>
             <button onclick="toggleExportMenu()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-blue-100/50 transition text-blue-500">
-                <i class="fas fa-share-nodes"></i>
+                <i class="fas fa-share-nodes text-xl"></i>
             </button>
         </div>
     </header>
@@ -187,11 +188,11 @@
                 card.onclick = () => openFolder(folder.id);
                 card.innerHTML = `
                     <div class="flex-grow flex flex-col items-center justify-center text-center w-full min-w-0">
-                        <div class="font-black text-slate-800 truncate w-full text-sm sm:text-base mb-1 px-1">${folder.name}</div>
-                        <!-- 폰트 크기 확대: text-[8px] -> text-[11px] -->
-                        <div class="text-[11px] text-blue-500 font-bold mb-0.5">${latest}</div>
-                        <!-- 폰트 크기 확대: text-[9px] -> text-xs -->
-                        <div class="text-xs text-slate-500 font-semibold">${folder.notes.length}개</div>
+                        <div class="font-black text-slate-800 truncate w-full text-base mb-1 px-1">${folder.name}</div>
+                        <!-- 날짜 폰트 확대 -->
+                        <div class="text-[12px] text-blue-600 font-bold mb-0.5">${latest}</div>
+                        <!-- 개수 폰트 확대 -->
+                        <div class="text-sm text-slate-500 font-semibold">${folder.notes.length}개</div>
                     </div>
                     <button onclick="event.stopPropagation(); editFolder('${folder.id}')" class="absolute top-2 right-2 text-slate-200 hover:text-blue-400">
                         <i class="fas fa-cog text-[10px]"></i>
