@@ -6,7 +6,7 @@
     <title>병원기록관리</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap');
         
@@ -392,7 +392,8 @@
         }
         function importData() {
             try {
-                const newData = JSON.parse(document.getElementById('exportTextarea').value);
+                const rawValue = document.getElementById('exportTextarea').value.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
+                const newData = JSON.parse(rawValue);
                 if (newData.me && newData.son) {
                     if (confirm('데이터를 덮어쓰고 복원하시겠습니까?')) {
                         currentState.data = newData;
